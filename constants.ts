@@ -146,51 +146,69 @@ export const PROJECTS: Project[] = [
 export const VENTURES: Venture[] = [
   {
     id: 1,
-    name: "Lumina",
-    role: "Founder & CEO",
-    description: "A boutique digital design agency focused on high-conversion landing pages for SaaS unicorns.",
-    longDescription: "Lumina began as a solo consulting gig and grew into a full-service agency. We partner with YC-backed startups to overhaul their digital presence before Series A rounds. Our philosophy is simple: Design converts.",
-    logoUrl: "https://picsum.photos/200/200?random=10",
-    coverUrl: "https://picsum.photos/1200/800?random=11",
-    website: "https://lumina.agency",
-    status: "Active - $1.2M ARR",
+    name: "ByteUnion (BYN)",
+    role: "Founder & Architect",
+    description: "The technological powerhouse driving scalable digital infrastructure and software unions.",
+    longDescription: "ByteUnion (BYN) serves as the engineering backbone for enterprise-grade solutions. We specialize in high-frequency data systems and robust cloud architecture, providing the 'bytes' that unite global commerce.",
+    // Corrected BYN Image URL
+    logoUrl: "https://i.ibb.co/Y7Hy2dKx/1757220411464.png",
+    coverUrl: "https://i.ibb.co/Y7Hy2dKx/1757220411464.png",
+    website: "#",
+    status: "Active - Scaling",
     stats: [
-      { label: "Clients", value: "45+" },
-      { label: "Revenue", value: "$1.2M" },
-      { label: "Team", value: "12" }
-    ]
+      { label: "Systems", value: "Enterprise" },
+      { label: "Uptime", value: "99.99%" },
+      { label: "Focus", value: "Infrastructure" }
+    ],
+    contact: {
+      email: "inquiries@byteunion.tech",
+      location: "Silicon Valley / Remote",
+      handle: "@ByteUnionTech"
+    }
   },
   {
     id: 2,
-    name: "DevFlow",
-    role: "Co-Founder",
-    description: "An AI-powered project management tool specifically for remote engineering teams.",
-    longDescription: "Frustrated by Jira's complexity, we built DevFlow. It uses LLMs to automatically categorize tickets, write changelogs, and predict sprint velocity. Acquired by TechGiant in 2025.",
-    logoUrl: "https://picsum.photos/200/200?random=12",
-    coverUrl: "https://picsum.photos/1200/800?random=13",
+    name: "Lumora X (LMX)",
+    role: "Founder & Visionary",
+    description: "An avant-garde innovation lab incubating 41+ stealth brands.",
+    longDescription: "Lumora X (LMX) is where aesthetics meet futurism. We are currently incubating a massive pipeline of 41 unique brands slated for release. Operating at the edge of design and reality, LMX is the launchpad for the next generation of consumer identity.",
+    // Corrected LMX Image URL
+    logoUrl: "https://i.ibb.co/hRvsYP71/compressed-1000467107.png",
+    coverUrl: "https://i.ibb.co/hRvsYP71/compressed-1000467107.png",
     website: "#",
-    status: "Acquired",
+    status: "Innovation Arm",
     stats: [
-      { label: "Users", value: "50k" },
-      { label: "Growth", value: "200% YoY" },
-      { label: "Exit", value: "2025" }
-    ]
+      { label: "Pipeline", value: "41 Brands" },
+      { label: "Status", value: "Stealth/Dev" },
+      { label: "Sector", value: "Design Tech" }
+    ],
+    contact: {
+      email: "innovation@lumorax.design",
+      location: "Global Distributed",
+      handle: "@LumoraX"
+    }
   },
   {
     id: 3,
-    name: "AssetUi",
-    role: "Creator",
-    description: "Premium UI kit and component library for React & Tailwind CSS.",
-    longDescription: "AssetUi is a passive income stream that provides developers with high-end, copy-paste components. It powers thousands of portfolios and startup landing pages globally.",
-    logoUrl: "https://picsum.photos/200/200?random=14",
-    coverUrl: "https://picsum.photos/1200/800?random=15",
-    website: "https://assetui.com",
-    status: "Passive - Scaling",
+    name: "DMCE Foundation",
+    role: "Chairman",
+    description: "The official governing body and strategic holding company for the ecosystem.",
+    longDescription: "DMCE (Official Life) stands as the central pillar, managing the portfolio of ventures and overseeing strategic direction. It is the bridge between capital, management, and execution, ensuring all subsidiaries align with the core vision.",
+    // Corrected DMCE Image URL
+    logoUrl: "https://i.ibb.co/fGCL192d/Gemini-Generated-Image-nyxsg4nyxsg4nyxs.png",
+    coverUrl: "https://i.ibb.co/fGCL192d/Gemini-Generated-Image-nyxsg4nyxsg4nyxs.png",
+    website: "#",
+    status: "Parent Company",
     stats: [
-      { label: "Downloads", value: "120k+" },
-      { label: "Components", value: "500+" },
-      { label: "Rating", value: "4.9/5" }
-    ]
+      { label: "Assets", value: "Diversified" },
+      { label: "Reach", value: "Global" },
+      { label: "Est.", value: "2024" }
+    ],
+    contact: {
+      email: "office@dmce.global",
+      location: "Headquarters",
+      handle: "@OfficialDMCE"
+    }
   }
 ];
 

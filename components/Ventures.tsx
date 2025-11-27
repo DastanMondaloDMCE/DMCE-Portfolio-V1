@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, TrendingUp, Users, Target, X, Globe, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, TrendingUp, Users, Target, X, Globe, ChevronRight, MapPin, Mail, AtSign } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { Venture } from '../types';
 
@@ -62,26 +62,34 @@ export const Ventures: React.FC = () => {
                   <img 
                     src={venture.coverUrl} 
                     alt={venture.name} 
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-1000"
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                </div>
 
                {/* Content */}
-               <div className="absolute inset-0 p-8 flex flex-col justify-between">
+               <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
-                     <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-colors duration-500">
-                        {/* Placeholder Icon based on name initial */}
-                        <span className="text-xl font-bold font-serif">{venture.name.charAt(0)}</span>
+                     <div className="w-16 h-16 bg-black/40 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-colors duration-500 overflow-hidden">
+                        {venture.logoUrl ? (
+                            <img 
+                              src={venture.logoUrl} 
+                              alt="logo" 
+                              className="w-full h-full object-contain p-2" 
+                            />
+                        ) : (
+                            <span className="text-xl font-bold font-serif">{venture.name.charAt(0)}</span>
+                        )}
                      </div>
-                     <span className="px-3 py-1 bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                     <span className="px-3 py-1 bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded-full text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm">
                         {venture.status}
                      </span>
                   </div>
 
                   <div>
-                     <h3 className="text-3xl font-bold text-white mb-2">{venture.name}</h3>
-                     <p className="text-gray-300 text-sm line-clamp-2 mb-4 opacity-80 group-hover:opacity-100 transition-opacity">
+                     <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-md">{venture.name}</h3>
+                     <p className="text-gray-300 text-sm line-clamp-2 mb-4 opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-sm">
                         {venture.description}
                      </p>
                      <div className="flex items-center text-blue-400 text-xs font-bold uppercase tracking-widest gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
@@ -116,7 +124,7 @@ export const Ventures: React.FC = () => {
                   <img 
                     src={selectedVenture.coverUrl} 
                     alt="Cover" 
-                    className="w-full h-full object-cover opacity-40"
+                    className="w-full h-full object-cover opacity-60"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/50 to-[#050505]"></div>
                   
@@ -124,7 +132,7 @@ export const Ventures: React.FC = () => {
                      <div className="inline-block px-4 py-2 mb-6 border border-blue-500/30 bg-blue-500/10 rounded-full text-blue-400 text-xs font-bold tracking-[0.2em] uppercase animate-fade-in-up">
                         {selectedVenture.role}
                      </div>
-                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-white mb-6 animate-slide-down leading-none">
+                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-white mb-6 animate-slide-down leading-none drop-shadow-lg">
                         {selectedVenture.name}
                      </h1>
                   </div>
@@ -132,7 +140,7 @@ export const Ventures: React.FC = () => {
 
                {/* Details */}
                <div className="px-6 md:px-12 lg:px-24 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
-                  {/* Left Column: Stats */}
+                  {/* Left Column: Stats & Contact */}
                   <div className="lg:col-span-4 space-y-8 animate-fade-in delay-200">
                      <div className="bg-white/[0.03] border border-white/5 rounded-3xl p-8 backdrop-blur-sm">
                         <h4 className="text-sm text-gray-500 font-bold uppercase tracking-widest mb-6">Key Metrics</h4>
@@ -145,6 +153,38 @@ export const Ventures: React.FC = () => {
                            ))}
                         </div>
                      </div>
+
+                     {/* Contact / HQ Card */}
+                     {selectedVenture.contact && (
+                        <div className="bg-blue-900/10 border border-blue-500/20 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden group">
+                           <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
+                           
+                           <h4 className="text-sm text-blue-400 font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
+                              <Globe size={14} /> Headquarters
+                           </h4>
+                           
+                           <div className="space-y-4">
+                              <div className="flex items-center gap-3 text-gray-300">
+                                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                                    <Mail size={14} />
+                                 </div>
+                                 <span className="text-sm">{selectedVenture.contact.email}</span>
+                              </div>
+                              <div className="flex items-center gap-3 text-gray-300">
+                                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                                    <MapPin size={14} />
+                                 </div>
+                                 <span className="text-sm">{selectedVenture.contact.location}</span>
+                              </div>
+                              <div className="flex items-center gap-3 text-gray-300">
+                                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                                    <AtSign size={14} />
+                                 </div>
+                                 <span className="text-sm">{selectedVenture.contact.handle}</span>
+                              </div>
+                           </div>
+                        </div>
+                     )}
 
                      <a 
                         href={selectedVenture.website}

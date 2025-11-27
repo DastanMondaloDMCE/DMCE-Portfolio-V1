@@ -29,6 +29,11 @@ export interface Venture {
     label: string;
     value: string;
   }[];
+  contact: {
+    email: string;
+    location: string;
+    handle: string;
+  };
 }
 
 export interface SkillData {
